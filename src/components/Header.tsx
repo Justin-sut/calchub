@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+const navLinks = [
+  { href: "/", label: "Construction" },
+  { href: "/hvac", label: "HVAC" },
+  { href: "/electrical", label: "Electrical" },
+  { href: "/plumbing", label: "Plumbing" },
+];
+
 export default function Header() {
   return (
     <header className="border-b border-border bg-white">
@@ -10,13 +17,16 @@ export default function Header() {
           </div>
           <span className="text-xl font-bold text-foreground">CalcHub</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm">
-          <Link href="/#calculators" className="text-muted hover:text-foreground transition-colors">
-            All Calculators
-          </Link>
-          <Link href="/about" className="text-muted hover:text-foreground transition-colors">
-            About
-          </Link>
+        <nav className="flex items-center gap-1 sm:gap-2">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="px-3 py-1.5 rounded-lg text-sm font-medium text-muted hover:text-foreground hover:bg-surface transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
