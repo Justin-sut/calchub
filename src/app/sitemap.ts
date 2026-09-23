@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { calculators } from "@/lib/calculators";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://calchub.app";
+  const base = "https://myprojectcalc.site";
 
   const calcPages = calculators.map((c) => ({
     url: `${base}/${c.slug}`,
